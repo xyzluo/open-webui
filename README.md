@@ -57,6 +57,37 @@ Want to learn more about Open WebUI's features? Check out our [Open WebUI docume
 
 Don't forget to explore our sibling project, [Open WebUI Community](https://openwebui.com/), where you can discover, download, and explore customized Modelfiles. Open WebUI Community offers a wide range of exciting possibilities for enhancing your chat interactions with Open WebUI! 🚀
 
+## Quick Start
+```sh
+bash run-compose.sh -h
+
+bash run-compose.sh --enable-gpu
+bash run-compose.sh --enable-gpu[count=1] --enable-api[port=11434] --webui[port=3000]
+
+# user duduli168@gmail.com
+# password du*8
+
+# you can use curl to test the api
+curl http://localhost:11434/v1/chat/completions \
+    -H "Content-Type: application/json" \
+    -d '{
+        "model": "gemma:7b",
+        "messages": [
+            {
+                "role": "system",
+                "content": "You are a helpful assistant."
+            },
+            {
+                "role": "user",
+                "content": "Hello!"
+            }
+        ]
+    }'
+
+# shut down
+docker compose -f docker-compose.yaml down
+```
+
 ## How to Install 🚀
 
 > [!NOTE]  
