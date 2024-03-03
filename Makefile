@@ -31,3 +31,9 @@ update:
 	$(DOCKER_COMPOSE) up --build -d
 	$(DOCKER_COMPOSE) start
 
+run-cpu:
+	bash run-compose.sh --enable-api[port=11434] --webui[port=3000]
+
+run:
+	bash run-compose.sh --enable-gpu[count=1] --enable-api[port=11434] --webui[port=3000]
+

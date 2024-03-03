@@ -59,9 +59,15 @@ Don't forget to explore our sibling project, [Open WebUI Community](https://open
 
 ## Quick Start
 ```sh
+# use make is the easiest way to start
+make run-cpu
+make run # with gpu
+make stop
+
 bash run-compose.sh -h
 
 bash run-compose.sh --enable-gpu
+bash run-compose.sh --enable-api[port=11434] --webui[port=3000]
 bash run-compose.sh --enable-gpu[count=1] --enable-api[port=11434] --webui[port=3000]
 
 # user duduli168@gmail.com
@@ -118,6 +124,13 @@ docker compose -f docker-compose.yaml down
   ```
 
   - **To run Open WebUI with Nvidia GPU support**, use this command:
+- After installation, you can access Open WebUI at [http://localhost:3000](http://localhost:3000).
+
+- see above steps in run.sh
+
+#### Using Ollama on a Different Server
+
+- To connect to Ollama on another server, change the `OLLAMA_API_BASE_URL` to the server's URL:
 
   ```bash
   docker run -d -p 3000:8080 --gpus all --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:cuda
