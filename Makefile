@@ -34,6 +34,21 @@ update:
 run-cpu:
 	bash run-compose.sh --enable-api[port=11434] --webui[port=3000]
 
+# start ollama only
 run:
+	bash run-compose.sh --enable-gpu[count=1] --enable-api[port=11434]
+
+# start ollama with webui
+run-gui:
 	bash run-compose.sh --enable-gpu[count=1] --enable-api[port=11434] --webui[port=3000]
 
+.PHONY: stop-ollama
+stop-ollama:
+	docker compose -f docker-compose.yaml down
+
+.PHONY: stop-ollama-gui
+stop-ollama-gui:
+	docker compose -f docker-compose.gui.yaml down
+
+.PHONY: stop
+stop: stop-ollama stop-ollama-gui

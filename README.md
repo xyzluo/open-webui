@@ -69,6 +69,8 @@ bash run-compose.sh -h
 bash run-compose.sh --enable-gpu
 bash run-compose.sh --enable-api[port=11434] --webui[port=3000]
 bash run-compose.sh --enable-gpu[count=1] --enable-api[port=11434] --webui[port=3000]
+# for some reason this is not working, not sure why
+# bash run-compose.sh --enable-gpu[count=1] --enable-api[port=11434] --data[folder=./ollama-data]
 
 # user duduli168@gmail.com
 # password du*8
@@ -89,6 +91,12 @@ curl http://localhost:11434/v1/chat/completions \
             }
         ]
     }'
+
+# To connect this service from Anything-LLM which is running on windows host,
+# you can use url: http://172.20.8.148:11434/
+# Technically we need to use wsl2's ip address which is found by `ip addr |grep eth0`
+# It's not clearn why localhost:11434 is not working now. I think it should work because Anythin-LLM is also running on WSL2. One thing worth to try is to use `--add-host=host.docker.internal:host-gateway` in the docker run command or use docker compose to run them in the same network.
+```
 
 # shut down
 docker compose -f docker-compose.yaml down

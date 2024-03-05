@@ -96,7 +96,7 @@ usage() {
 # Default values
 gpu_count=1
 api_port=11435
-webui_port=3000
+# webui_port=3000
 headless=false
 build_image=false
 kill_compose=false
@@ -110,7 +110,7 @@ extract_value() {
 while [[ $# -gt 0 ]]; do
     key="$1"
 
-    case $key in
+    case $key in  
         --enable-gpu*)
             enable_gpu=true
             value=$(extract_value "$key")
@@ -192,6 +192,9 @@ else
         DEFAULT_COMPOSE_COMMAND+=" --build"
     fi
 fi
+
+echo "command to be executed: "
+echo $DEFAULT_COMPOSE_COMMAND
 
 # Recap of environment variables
 echo
