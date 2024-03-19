@@ -62,6 +62,13 @@ Don't forget to explore our sibling project, [Open WebUI Community](https://open
 # use make is the easiest way to start
 make run-cpu
 make run # with gpu
+# ollama + open-webui
+make run-all
+
+# to see the web ui, go to either url: http://localhost:3000 (better) or  http://172.20.8.148:3000/ (not secure)
+# if you see loclahost not working, restart windows will work.
+
+# shut down
 make stop
 
 bash run-compose.sh -h
@@ -93,7 +100,7 @@ curl http://localhost:11434/v1/chat/completions \
     }'
 
 # To connect this service from Anything-LLM which is running on windows host,
-# you can use url: http://172.20.8.148:11434/
+# you can also use url: http://172.20.8.148:11434/
 # Technically we need to use wsl2's ip address which is found by `ip addr |grep eth0`
 # It's not clearn why localhost:11434 is not working now. I think it should work because Anythin-LLM is also running on WSL2. One thing worth to try is to use `--add-host=host.docker.internal:host-gateway` in the docker run command or use docker compose to run them in the same network.
 ```
