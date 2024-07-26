@@ -59,9 +59,9 @@ Don't forget to explore our sibling project, [Open WebUI Community](https://open
 
 ## Quick Start
 ```sh
-# use make is the easiest way to start
+# use make is the easiest way to start Ollama only
 make run-cpu
-make run # with gpu
+make run # Ollama with gpu
 # ollama + open-webui
 make run-all
 

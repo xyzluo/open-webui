@@ -44,7 +44,7 @@ run-webui:
 
 # start ollama with webui
 run-all:
-	bash run-compose.sh --enable-gpu[count=1] --enable-api[port=11434] --webui[port=3000]
+	bash run-compose.sh --enable-gpu[count=1] --enable-api[port=11434] --webui[port=3001]
 
 .PHONY: stop-ollama
 stop-ollama:
