@@ -31,3 +31,4 @@ services:
 
 volumes:
   ollama: {}
+  open-webui: {}
